@@ -1,27 +1,21 @@
-import { useMemo } from "react";
 import { useSelector } from "react-redux";
-import { selectContacts } from "../../redux/contactsSlice";
-import { selectNameFilter } from "../../redux/filtersSlice";
+import {
+  selectFilteredContacts,
+  selectHasContacts,
+} from "../../redux/contactsSlice";
 import Contact from "../Contact/Contact";
 import SearchBox from "../SearchBox/SearchBox";
 import css from "./ContactList.module.css";
 
 const ContactList = () => {
-  const contacts = useSelector(selectContacts);
-  const filter = useSelector(selectNameFilter);
-  const showSearchBox = contacts.length > 0;
-
-  const availbleContacts = useMemo(() => {
-    return contacts.filter(({ name }) =>
-      name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
-    );
-  }, [contacts, filter]);
+  const filteredContacts = useSelector(selectFilteredContacts);
+  const hasContacts = useSelector(selectHasContacts);
 
   return (
     <div className={css.wrapper}>
-      {showSearchBox && <SearchBox />}
+      {hasContacts && <SearchBox />}
       <div className={css.contactList}>
-        {availbleContacts.map((contact) => (
+        {filteredContacts.map((contact) => (
           <Contact key={contact.id} contact={contact} />
         ))}
       </div>

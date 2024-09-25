@@ -6,6 +6,7 @@
   padding: 4px 12px;
   height: 32px;
   cursor: pointer;
+  transition: all var(--trns-fast);
 }
 
 .button:hover, 

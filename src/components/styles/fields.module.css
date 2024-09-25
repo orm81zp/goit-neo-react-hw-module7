@@ -9,7 +9,11 @@
   width: 100%;
 }
 
+.field input::placeholder {
+  color: var(--color-placeholder);
+}
+
 .error {
   display: block;
-  color: #fa0000;
+  color: var(--color-error);
 }

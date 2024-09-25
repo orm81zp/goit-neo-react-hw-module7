@@ -1,6 +1,6 @@
 import { Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsSlice";
+import { addContact } from "../../redux/contactsOps";
 import Button from "../Button/Button";
 import FieldInput from "../FieldInput/FieldInput";
 import { initialValues } from "./const";
@@ -25,7 +25,7 @@ const ContactForm = () => {
       >
         <Form className={css.form}>
           <FieldInput name="name" label="Name" />
-          <FieldInput name="number" label="Number" />
+          <FieldInput name="number" label="Number" placeholder="111-222-3333" />
           <div className={css.actions}>
             <Button type="submit">Add contact</Button>
           </div>
