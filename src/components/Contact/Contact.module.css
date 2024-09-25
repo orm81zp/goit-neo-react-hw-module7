@@ -7,17 +7,6 @@
   padding: 8px;
   border-radius: 4px;
   width: 100%;
-  cursor: pointer;
-}
-
-.contact:hover {
-  box-shadow: var(--box-shadow);  
-}
-
-.contact.active {
-  box-shadow: var(--box-shadow);
-  border: 1px solid var(--color-primary);
-  color: var(--color-primary);
 }
 
 .actions {
@@ -36,18 +25,13 @@
   gap: 6px;
 }
 
-.dateRow {
+.date {
   color: var(--color-placeholder);
 }
 
 .name {
   font-weight: 700;
   font-size: 18px;
-}
-
-.contact.active .number {
-  letter-spacing: 0.1em;
-  font-weight: 700;
 }
 
 @media only screen and (min-width: 768px) {

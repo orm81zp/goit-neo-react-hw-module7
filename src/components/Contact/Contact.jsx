@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { useState } from "react";
 import { FaCalendar, FaPhoneAlt, FaUser } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contactsOps";
@@ -10,7 +9,6 @@ import { getFormatedDate } from "./utils";
 
 const Contact = ({ contact }) => {
   const dispatch = useDispatch();
-  const [active, setActive] = useState(false);
   const { id, name, number, createdAt } = contact;
 
   const handleDeleteClick = () => {
@@ -19,24 +17,18 @@ const Contact = ({ contact }) => {
     }
   };
 
-  const handleClick = () => {
-    setActive((prevState) => !prevState);
-  };
-
-  const classNames = clsx(css.contact, active && css.active);
-
   return (
-    <div className={classNames} onClick={handleClick}>
+    <div className={css.contact}>
       <div className={css.content}>
         <div className={clsx(css.row, css.name)}>
           <FaUser />
           <span>{name}</span>
         </div>
-        <div className={clsx(css.row, css.number)}>
+        <div className={css.row}>
           <FaPhoneAlt />
           <span>{number}</span>
         </div>
-        <div className={clsx(css.row, css.dateRow)}>
+        <div className={clsx(css.row, css.date)}>
           <FaCalendar />
           <span>{getFormatedDate(createdAt)}</span>
         </div>
